@@ -21,7 +21,6 @@ public class SqlLiteDbConnection implements ConnectionInterface {
             String url = "jdbc:sqlite:".concat(AppContextListener.rootPath).concat("/db/dati.s3db");
             // create a connection to the database
             conn = DriverManager.getConnection(url);
-            System.out.println("Connessione al database eseguita correttamente.");    
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } 
@@ -38,9 +37,7 @@ public class SqlLiteDbConnection implements ConnectionInterface {
 	public void closeConnection() {
 		try 
 		{
-			conn.close();
-			 System.out.println("Connessione chiusa.");    
-			
+			conn.close();			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

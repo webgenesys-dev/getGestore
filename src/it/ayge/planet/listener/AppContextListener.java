@@ -34,23 +34,12 @@ public class AppContextListener implements ServletContextListener{
 	}
 
 	@Override
-	public void contextInitialized(ServletContextEvent arg0) {
-
-		
-		
-		
-		
+	public void contextInitialized(ServletContextEvent arg0) {		
 		try 
 		{
 			CURRENT_HOST_NAME = InetAddress.getLoopbackAddress().getHostAddress();			
 			CONTEXT_PATH = arg0.getServletContext().getContextPath().replace("/", "");
-			rootPath = arg0.getServletContext().getRealPath(File.separator);			
-			
-			//AYGE_HOME = System.getenv("AYGE_HOME"); 
-			//DIR_CONF = AYGE_HOME+File.separator+"config";
-			
-			System.out.println("CONTEXT_PATH----------------> " + CONTEXT_PATH);
-			System.out.println("rootPath--------------------> " + rootPath);
+			rootPath = arg0.getServletContext().getRealPath(File.separator);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,34 +47,4 @@ public class AppContextListener implements ServletContextListener{
 		}
 		
 	}
-	
-	/*
-	private String getConfFileValue(String propName)
-	{
-		String res = null;
-		try {
-			
-			File f = null;
-			String path = DIR_CONF.concat(File.separator).concat("ApplicationResources_").concat(CONTEXT_PATH).concat(".properties");
-			//.out.println("path conf.................. "+path);
-			
-			f = new File(path);
-			if(!f.exists())
-				path = rootPath.concat(File.separator).concat("conf").concat(File.separator).concat("config.properties");
-			
-			res = GetConfigPropertyValues.getInstance().getPropValues(path,	propName);
-		    
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return res; 
-	}
-	*/
-	
-	
-	
-	
-	
-	
-
 }
